@@ -48,7 +48,6 @@ void ProfitSort(Friend *person, int NumberOfFriends) {
         }
     }
 }
-// TO DO: ProfitFunction 
 
 int MaxDayToWork(Friend *person, int NumberOfFriends) {
     int MaxDayCounter = 0;

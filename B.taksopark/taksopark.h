@@ -16,7 +16,7 @@ typedef struct Friends {
     int CarPrice;
 } Friend;
 
-//FUNCTIONS
+// FUNCTIONS
 int ScanfFriend(Friend *person, int NumberOfFriends);
 void ProfitSort(Friend *person, int NumberOfFriends);
 int MaxDayToWork(Friend *person, int NumberOfFriends);
