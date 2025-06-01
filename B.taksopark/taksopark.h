@@ -11,9 +11,9 @@
 
 // STRUCTERS
 typedef struct Friends {
-    long long FirstVacationDay;
-    long long LastVacationDay;
-    int CarPrice;
+  long long FirstVacationDay;
+  long long LastVacationDay;
+  int CarPrice;
 } Friend;
 
 // FUNCTIONS
@@ -22,4 +22,4 @@ void ProfitSort(Friend *person, int NumberOfFriends);
 int MaxDayToWork(Friend *person, int NumberOfFriends);
 int ProfitFunction(int NumberOfFriends, Friend *person, int NumberOfCars);
 
-#endif // TAKSOPARK_H_
+#endif  // TAKSOPARK_H_
