@@ -3,57 +3,55 @@
 #define MAX_SECONDS 1000000
 
 int ScanfSeconds(int NumberOfHouses, int SecondsToNextHouse[MAX_HOUSES]);
-long long TimeToGetToWork(int NumberOfHouses,
-                          int SecondsToNextHouse[MAX_HOUSES]);
+long long TimeToGetToWork(int NumberOfHouses, int SecondsToNextHouse[MAX_HOUSES]);
 
 int main() {
-  int NumberOfHouses;
-  int SecondsToNextHouse[MAX_HOUSES];
+    int NumberOfHouses;
+    int SecondsToNextHouse[MAX_HOUSES];
 
-  if (scanf("%d", &NumberOfHouses) != 1) {
-    printf("%s", "Error: ivalid input");
+    if (scanf("%d", &NumberOfHouses) != 1) {
+        printf("%s", "Error: ivalid input");
+        return 0;
+    }
+
+    if (NumberOfHouses == 1) {
+        printf("%d", 0);
+        return 0;
+    }
+
+    if (ScanfSeconds(NumberOfHouses, SecondsToNextHouse) == 1) {
+        printf("%s", "Error: ivalid input");
+        return 0;
+    }
+
+    printf("%lld", TimeToGetToWork(NumberOfHouses, SecondsToNextHouse));
     return 0;
-  }
-
-  if (NumberOfHouses == 1) {
-    printf("%d", 0);
-    return 0;
-  }
-
-  if (ScanfSeconds(NumberOfHouses, SecondsToNextHouse) == 1) {
-    printf("%s", "Error: ivalid input");
-    return 0;
-  }
-
-  printf("%lld", TimeToGetToWork(NumberOfHouses, SecondsToNextHouse));
-  return 0;
 }
 
 int ScanfSeconds(int NumberOfHouses, int SecondsToNextHouse[MAX_HOUSES]) {
-  int flag = 0;
+    int flag = 0;
 
-  for (int i = 0; i < NumberOfHouses; i++) {
-    int temp;
-    if (scanf("%d", &temp) != 1) {
-      flag = 1;
+    for (int i = 0; i < NumberOfHouses; i++) {
+        int temp;
+        if (scanf("%d", &temp) != 1) {
+            flag = 1;
+        }
+        SecondsToNextHouse[i] = temp;
     }
-    SecondsToNextHouse[i] = temp;
-  }
 
-  return flag;
+    return flag;
 }
 
-long long TimeToGetToWork(int NumberOfHouses,
-                          int SecondsToNextHouse[MAX_HOUSES]) {
-  long long SecondsCounter = 0;
-  long long MinSeconds = MAX_SECONDS;
+long long TimeToGetToWork(int NumberOfHouses, int SecondsToNextHouse[MAX_HOUSES]) {
+    long long SecondsCounter = 0;
+    long long MinSeconds = MAX_SECONDS;
 
-  for (int i = 0; i < NumberOfHouses - 1; i++) {
-    if (SecondsToNextHouse[i] < MinSeconds) {
-      MinSeconds = SecondsToNextHouse[i];
+    for (int i = 0; i < NumberOfHouses - 1; i++) {
+        if (SecondsToNextHouse[i] < MinSeconds) {
+            MinSeconds = SecondsToNextHouse[i];
+        }
+        SecondsCounter += MinSeconds;
     }
-    SecondsCounter += MinSeconds;
-  }
 
-  return SecondsCounter;
+    return SecondsCounter;
 }
